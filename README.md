@@ -1,2 +1,2 @@
 # python-hangman
-Simply hangman game in Python
+Simple hangman game in Python
