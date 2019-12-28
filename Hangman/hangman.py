@@ -1,11 +1,12 @@
-from string import ascii_lowercase
+import string
 from words import get_random_word  # words.py is a library, so it's an import
 
 random_word = get_random_word()
 max_attempts = len(random_word)
-
+alphabet = "abcdefghijklmnopqrstuvwxyz"
 incorrect_guesses = 0
 correct_letters = 0
+
 
 def generate_placeholder_word():
     i = 0
@@ -26,7 +27,22 @@ print("Your word is " + str(max_attempts) +
 print(placeholder_word)
 
 while game_over == False:
-    guessed_letter = input("Enter a letter:")
+    guessed_letter = input("Enter a letter: ")
+
+    # entered more than 1 char
+    if len(guessed_letter) > 1:
+        guessed_letter = guessed_letter[0:1]
+        print("You entered more than one letter. Taking first letter: " + guessed_letter)
+    
+    # entered nothing or just spaces
+    if guessed_letter  == "" or guessed_letter.strip() == "":
+        continue
+
+    # first char isn't a letter
+    if guessed_letter not in alphabet:
+        print("Not a letter!")
+        continue
+
     j = 0
     guessed_correct = False
     for char in random_word:

@@ -1,6 +1,6 @@
 import random
 
-WORDLIST = 'wordlist.txt'
+WORDLIST = 'Hangman/wordlist.txt'
 
 words = []
 
